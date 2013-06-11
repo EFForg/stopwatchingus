@@ -1,0 +1,839 @@
+<!-- Begin Wrapper > Header HTML -->
+<!--[if lt IE 7]>              <html lang="en" class="ie6"> <![endif]-->
+<!--[if IE 7]>                 <html lang="en" class="ie7"> <![endif]-->
+<!--[if IE 8]>                 <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]>                <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8"><title>Stop Watching Us</title>
+    <!-- Empty conditional comment hack
+    Prevents lo d stacking in IE8
+    See http://www.phpied.com/conditional-comments-block-downloads/ -->
+    <!--[if IE]><![endif]-->
+    <!-- Chrome Frame for browsers that support it -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+    <meta name="WT.si_n" content="Stop Watching Us">
+    <meta name="WT.si_x" content="1">
+    <link rel="shortcut icon" type="image/ico" href="https://sendto.mozilla.org/page/-/ssou-logos/fav-eye-con.png">
+    <title>Stop Watching Us</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <style>
+      @font-face {
+        font-family: 'OpenSansLightRegular';
+        src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.eot');
+        src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+           url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.woff') format('woff'),
+           url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.ttf') format('truetype'),
+           url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-light-webfont.svg#OpenSansLightRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+      
+      @font-face {
+        font-family: 'OpenSansRegular';
+        src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.eot');
+        src: url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+           url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.woff') format('woff'),
+           url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.ttf') format('truetype'),
+           url('https://sendto.mozilla.org/page/-/ws_assets/fonts/opensans-regular-webfont.svg#OpenSansRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      html, body {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(245, 245, 245);
+        font-family: Georgia, 'OpenSansRegular', serif;
+        font-size: 12pt;
+        font-weight: normal;
+        color: rgb(83, 83, 83);
+      }
+
+      a {
+        color: rgb(39, 170, 225);
+      }
+
+      .wrapper {
+      }
+
+      .wrapper.top {
+        background-color: rgb(245, 245, 245);
+        background-image: url('https://sendto.mozilla.org/page/-/ssou-logos/point.png');
+        background-position: 0 100%;
+        background-repeat: repeat-x;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .wrapper.middle {
+        background-color: rgb(255, 255, 255);
+      }
+
+      .wrapper.bottom:before {
+        background-image: url('https://sendto.mozilla.org/page/-/ssou-logos/bottom-point.png');
+        background-repeat: repeat-x;
+        width: 100%;
+        height: 30px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+      }
+
+      .wrapper.bottom {
+        background-color: rgb(245, 245, 245);
+        padding-top: 15px;
+        height: 300px;
+        position: relative;
+      }
+
+      .signatories-container {
+        height: 170px;
+      }
+
+      .content {
+        width: 800px;
+        margin: 0 auto;
+        padding: 10px 0;
+      }
+
+      .signatory-category, .signatory-categories {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: .9em;
+        width: 800px;
+      }
+
+      .signatory-categories {
+        padding-top: 10px;
+        margin: -35px 0 1em 0;
+        color: rgb(39, 170, 225);
+      }
+
+      .signatory-category li, .signatory-categories li {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+
+      .signatory-categories li {
+        cursor: pointer;
+        text-decoration: none;
+        padding: .2em .5em;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 50px;
+        padding: 40px 20px 0 20px;
+      }
+
+      .signatory-categories li.on {
+        background: rgb(37,170,225); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(37,170,225,1) 0%, rgba(33,149,196,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(37,170,225,1)), color-stop(100%,rgba(33,149,196,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(37,170,225,1) 0%,rgba(33,149,196,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(37,170,225,1) 0%,rgba(33,149,196,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(37,170,225,1) 0%,rgba(33,149,196,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(37,170,225,1) 0%,rgba(33,149,196,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#25aae1', endColorstr='#2195c4',GradientType=0 ); /* IE6-9 */
+        color: #fff;
+      }
+
+      .signatory-categories li:hover {
+        text-decoration: underline;
+      }
+
+      .signatory-categories li.on:hover {
+        text-decoration: none;
+      }
+
+      .signatory-category li {
+        padding-right: 5px;
+        color: rgb(39, 170, 225);
+      }
+
+      .signatory-category li:after {
+        content: '|';
+        padding-left: 5px;
+        color: rgb(183, 183, 183);
+      }
+
+      .signatory-category li:last-child:after {
+        content: '';
+      }
+
+      .signatory-category {
+        position: absolute;
+        webkit-transition: opacity .25s, visibility .25s;
+           moz-transition: opacity .25s, visibility .25s;
+            ms-transition: opacity .25s, visibility .25s;
+             o-transition: opacity .25s, visibility .25s;
+               transition: opacity .25s, visibility .25s;
+      }
+
+      .signatory-category.off {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .title {
+        font-size: 50px;
+        text-align: center;
+        margin-top: 15px;
+      }
+
+      .call-to-action {
+        text-align: center;
+        margin: 0 20px;
+        line-height: 1.5em;
+        font-size: 20px;
+        padding-bottom: 30px;
+      }
+
+      form {
+        width: 600px;
+        margin: 0 auto;
+        text-align: center;
+        border-top: 1px solid rgb(212, 212, 212);
+      }
+
+      form input[type="text"] {
+        height: 30px;
+        padding: 5px;
+        font-size: 12px;
+        width: 130px;
+        margin: 0 5px;
+      }
+
+      form input[name="zip"] {
+        width: 60px;
+      }
+
+      h1, h3 {
+        font-weight: normal;
+      }
+
+      button {
+        display: block;
+        width: 170px;
+        height: 30px;
+        border: 0;
+        font-size: 20px;
+        color: #fff;
+        background: rgb(232,130,66); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(232,130,66,1) 0%, rgba(226,99,30,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(232,130,66,1)), color-stop(100%,rgba(226,99,30,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(232,130,66,1) 0%,rgba(226,99,30,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(232,130,66,1) 0%,rgba(226,99,30,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(232,130,66,1) 0%,rgba(226,99,30,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(232,130,66,1) 0%,rgba(226,99,30,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e88242', endColorstr='#e2631e',GradientType=0 ); /* IE6-9 */
+        border-radius: 5px;
+        box-shadow: inset 0 1px 1px rgb(255, 255, 255), 0 1px 1px rgb(83, 83, 83);
+        cursor: pointer;
+        position: relative;
+        margin: 10px auto;
+      }
+
+      button:before, button:after {
+        position: absolute;
+        content: '';
+        width: 210px;
+        height: 1px;
+        background-color: rgb(212, 212, 212);
+        top: 50%;
+      }
+
+      button:before {
+        right: -215px;
+      }
+
+      button:after {
+        left: -215px;
+      }
+
+      button:hover {
+        background: rgb(255,160,101); /* Old browsers */
+        background: -moz-linear-gradient(top,  rgba(255,160,101,1) 0%, rgba(255,134,69,1) 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,160,101,1)), color-stop(100%,rgba(255,134,69,1))); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(top,  rgba(255,160,101,1) 0%,rgba(255,134,69,1) 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(top,  rgba(255,160,101,1) 0%,rgba(255,134,69,1) 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(top,  rgba(255,160,101,1) 0%,rgba(255,134,69,1) 100%); /* IE10+ */
+        background: linear-gradient(to bottom,  rgba(255,160,101,1) 0%,rgba(255,134,69,1) 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa065', endColorstr='#ff8645',GradientType=0 ); /* IE6-9 */
+      }
+
+      .quote-container {
+        padding-top: 10px;
+        width: 800px;
+        height: 105px;
+        overflow: hidden;
+        margin: 0 auto;
+      }
+
+      .quote-block {
+        position: absolute;
+        width: 760px;
+        margin: 0 20px;
+        height: 110px;
+        text-align: center;
+        webkit-transition: opacity 1s, visibility 1s;
+           moz-transition: opacity 1s, visibility 1s;
+            ms-transition: opacity 1s, visibility 1s;
+             o-transition: opacity 1s, visibility 1s;
+               transition: opacity 1s, visibility 1s;
+      }
+
+      .quote-block .author {
+        font-weight: bold;
+        position: relative;
+        height: 20px;
+        font-size: 15px;
+        margin-top: 10px;
+      }
+
+      .quote-block .author:before, .quote-block .author:after {
+        content: '';
+        display: inline-block;
+        margin: 4px 10px;
+        width: 70px;
+        height: 1px;
+        background-color: rgb(212, 212, 212);
+      }
+
+      .quote-block .author:before {
+        right: -5px;
+      }
+
+      .quote-block .author:after {
+        left: -5px;
+      }
+
+      .quote-block.off {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      #full-letter {
+        margin: 0 20px;
+        padding-bottom: 10px;
+        height: 30px;
+        text-align: center;
+        margin: 0 auto;
+        overflow: hidden;
+        webkit-transition: height .25s;
+           moz-transition: height .25s;
+            ms-transition: height .25s;
+             o-transition: height .25s;
+               transition: height .25s;
+      }
+
+      #full-letter.open {
+        height: 900px;
+      }
+
+      #full-letter a {
+        color: rgb(39, 170, 225);
+        cursor: pointer;
+        display: block;
+        height: 30px;
+        text-decoration: none;
+      }
+
+      #full-letter a:hover {
+        text-decoration: underline;
+      }
+
+      #letter-contents {
+        text-align: left;
+      }
+
+      .checkbox-wrapper {
+        text-align: left;
+        position: relative;
+        left: 10px;
+        padding: 10px;
+      }
+
+      .checkbox-wrapper input {
+        margin-right: 10px;
+        float: left;
+      }
+
+      .checkbox-wrapper label {
+        display: inline-block;
+        position: relative;
+        width: 90%;
+        font-size: .8em;
+      }
+
+      #form-errors {
+        padding: 5px;
+        padding-left: 10px;
+        margin: 0;
+        line-height: 20px;
+        width: 100%;
+        list-style-position: inside;
+        border: 2px solid rgb(200, 100, 100);
+        background-color: rgb(250, 230, 230);
+        border-radius: 10px;
+        margin: 0 auto;
+        margin-bottom: 15px;
+        color: rgb(205, 50, 50);
+        text-align: left;
+        font-family: arial, sans-serif;
+        font-size: 15px;
+      }
+
+      #form-errors li {
+        padding: 0;
+        margin: 0;
+      }
+
+      #form-errors.hidden {
+        visibility: hidden;
+      }
+
+      #thanks {
+        width: 100%;
+        text-align: center;
+        font-size: .6em;
+        padding-bottom: 20px;
+      }
+
+      #share-container {
+        background-color: rgb(58, 58, 60);
+        text-align: center;
+        color: #fff;
+        font-height: 20px;
+        height: 110px;
+      }
+
+      #share-container img {
+        width: 50px;
+        position: relative;
+        margin-right: 20px;
+        top: 20px;
+      }
+
+      @media only screen and (max-width: 600), only screen and (max-device-width: 600) {
+        .content, .signatory-category, .signatory-categories, .quote-container {
+          width: 500px;
+        }
+
+        .quote-block {
+          width: 460px;
+          margin: 0 10px;          
+        }
+
+        form {
+          width: 400px;
+        }
+
+        .wrapper.bottom .content {
+          display: none;
+          height: 0;
+        }
+
+        .wrapper.bottom {
+          height: 0;
+          background-color: rgb(58, 58, 60);
+        }
+      }
+
+      @media only screen and (max-width: 400), only screen and (max-device-width: 400) {
+        .content, .signatory-category, .signatory-categories, .quote-container {
+          width: 300px;
+        }
+
+        .quote-block {
+          width: 260px;
+          margin: 0 10px;          
+        }
+
+        form {
+          width: 300px;
+        }
+
+        .wrapper.bottom .content, .wrapper.top .content {
+          display: none;
+          height: 0;
+        }
+
+        .wrapper.top {
+          height: 10px;
+        }
+
+        .wrapper.bottom {
+          height: 0;
+          background-color: rgb(58, 58, 60);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper top">
+      <div class="content">
+        <div class="quote-container">
+          <div class="quote-block">
+            <div class="quote">Unwarranted government surveillance is an intrusion on basic human rights that threatens the very foundations of a democratic society.</div>
+            <div class="author">Tim Berners Lee</div>
+          </div>
+          <div class="quote-block off">
+            <div class="quote">Democracy requires an informed citizenry in order to function properly, and transparency and accountability are essential parts of that. That means knowing what our government is doing to us, in our name.</div>
+            <div class="author">Bruce Schneier</div>
+          </div>
+          <div class="quote-block off">
+            <div class="quote">No one shall be subjected to arbitrary interference with his privacy, family, home or correspondence, nor to attacks upon his honour and  reputation. Everyone has the right to the protection of the law against  such interference or attacks.</div>
+            <div class="author">UN Declaration on Human Rights</div>
+          </div>
+          <div class="quote-block off">
+            <div class="quote">Those who would give up essential Liberty, to purchase a little temporary Safety, deserve neither Liberty nor Safety.</div>
+            <div class="author">Benjamin Franklin</div>
+          </div>
+          <div class="quote-block off">
+            <div class="quote">[The National Security Agency's] capability at any time could be turned around on the American people, and no American would have any privacy left, such is the capability to monitor everything: telephone conversations, telegrams, it doesn’t matter. There would be no place to hide.</div>
+            <div class="author">Senator Frank Church, 1975</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wrapper middle">
+      <div class="content">
+        <h1 class="title">Stop Watching Us.</h1>
+        <h3 class="call-to-action">The revelations about the National Security Agency's surveillance apparatus, if true, represent a stunning abuse of our basic rights. We demand the U.S. Congress reveal the full extent of the NSA's spying programs.</h3>
+        <div id="full-letter">
+          <a href="#">Read the full letter to US Congress</a>
+          <div id="letter-contents">
+            <p>Dear Members of Congress,</p>
+             
+            <p>We write to express our concern about recent reports published in the Guardian and the Washington Post, and acknowledged by the Obama Administration, which reveal secret spying by the National Security Agency (NSA) on phone records and Internet activity of people in the United States.</p>
+             
+            <p>The Washington Post and the Guardian recently published reports based on information provided by a career intelligence officer showing how the NSA and the FBI are gaining broad access to data collected by nine of the leading U.S. Internet companies and sharing this information with foreign governments. As reported, the U.S. government is extracting audio, video, photographs, e-mails, documents, and connection logs that enable analysts to track a person's movements and contacts over time. As a result, the contents of communications of people both abroad and in the U.S. can be swept in without any suspicion of crime or association with a terrorist organization.</p>
+             
+            <p>Leaked reports also published by the Guardian and confirmed by the Administration reveal that the NSA is also abusing a controversial section of the PATRIOT Act to collect the call records of millions of Verizon customers. The data collected by the NSA includes every call made, the time of the call, the duration of the call, and other "identifying information" for millions of Verizon customers, including entirely domestic calls, regardless of whether those customers have ever been suspected of a crime. The Wall Street Journal has reported that other major carriers, including AT&amp;T and Sprint, are subject to similar secret orders.</p>
+             
+            <p>This type of blanket data collection by the government strikes at bedrock American values of freedom and privacy. This dragnet surveillance violates the First and Fourth Amendments of the U.S. Constitution, which protect citizens' right to speak and associate anonymously and guard against unreasonable searches and seizures that protect their right to privacy.</p>
+             
+            <p>We are calling on Congress to take immediate action to halt this surveillance and provide a full public accounting of the NSA's and the FBI's data collection programs. We call on Congress to immediately and publicly:</p>
+            
+            <ol>
+              <li>Enact reform this Congress to Section 215 of the USA PATRIOT Act, the state secrets privilege, and the FISA Amendments Act to make clear that blanket surveillance of the Internet activity and phone records of any person residing in the U.S. is prohibited by law and that violations can be reviewed in adversarial proceedings before a public court;</li>
+             
+              <li>Create a special committee to investigate, report, and reveal to the public the extent of this domestic spying. This committee should create specific recommendations for legal and regulatory reform to end unconstitutional surveillance;</li>
+             
+              <li>Hold accountable those public officials who are found to be responsible for this unconstitutional surveillance.</li>
+            </ol>
+
+            <p>Thank you for your attention to this matter.</p>
+             
+            <p>Sincerely,</p>
+          </div>
+        </div>
+        <form id="sign-form" action="https://sendto.mozilla.org/page/signup/stop-watching-us-form" method="post">
+          <ul id="form-errors" class="hidden">
+          </ul>
+          *<input type="text" name="email" id="email" placeholder="Email">
+          <input type="text" name="firstname" id="firstname" placeholder="Full Name">
+          <input type="text" name="addr1" id="addr1" placeholder="Address">
+          <input type="text" name="zip" id="zip" placeholder="Zip">
+          <div class="checkbox-wrapper">
+            <input type="checkbox" name="custom-2066" id="custom-2066">
+            <label for="custom-2066">
+              * I agree to Mozilla's <a target="_blank" href="https://www.mozilla.org/en-US/privacy-policy.html">privacy policy</a> and to having my information presented to US Congress in the form of a letter to be delivered by Fight for the Future (see its <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a>).
+            </label>
+          </div>
+          <div class="checkbox-wrapper">
+            <input type="hidden" name="custom-2069" id="custom-2069">
+            <input type="checkbox" name="stayinformed" id="stayinformed">
+            <label for="stayinformed" id="stayinformedlabel">
+              I would like to receive e-mails from <span></span> about this and related issues. The <span></span> privacy policy is available <a target="_blank">here</a>.
+            </label>
+          </div>
+        </form>
+        <button id="sign-button">SIGN</button>
+        <p style="font-size: .7em; padding: 0; width: 100%; text-align: center;">* Required Fields</p>
+      </div>
+    </div>
+    <div class="wrapper bottom">
+      <div class="content">
+        <ul class="signatory-categories">
+          <li data-category="organizations" class="on">Organizations</li>
+          <li data-category="public-figures">Public Figures</li>
+          <li data-category="businesses">Businesses</li>
+          <li data-category="private-individuals">Private Individuals</li>
+          <li data-category="members-of-congress">Members of US Congress</li>
+        </ul>
+        <div class="signatories-container">
+          <h5 style="width: 100%; text-align: center; margin: 5px;">Selected Signatories:</h5>
+          <ul class="signatory-category" data-category="organizations">
+          </ul>
+          <ul class="signatory-category off" data-category="public-figures">
+          </ul>
+          <ul class="signatory-category off" data-category="businesses">
+          </ul>
+          <ul class="signatory-category off" data-category="private-individuals">
+          </ul>
+          <ul class="signatory-category off" data-category="members-of-congress">
+          </ul>
+        </div>
+        <div id="thanks">Thanks to <a target="_blank" href="http://www.initiatedemand.com/">Initiate Demand</a> for providing the stopwatching.us domain name.</div>
+      </div>
+    </div>
+    <div id="share-container">
+      <div class="content" style="padding-bottom: 0;">
+        <img src="https://twitter.com/images/resources/twitter-bird-white-on-blue.png">Tweet <a target="_blank" href="https://twitter.com/share?url=&text=I%20would%20like%20to%20be%20included%20on%20the%20list%20of%20signatories.%20@stopwatchingus">@stopwatchingus</a> to be listed or ask questions.
+      </div>
+    </div>
+    <script>
+      // For ie. document seems to not have querySelector yet.
+      window.onload = function () {
+        // ie shims
+        if (!Object.keys) {
+          Object.keys = function(o) {
+            if (o !== Object(o))
+              throw new TypeError('Object.keys called on a non-object');
+            var k=[],p;
+            for (p in o) if (Object.prototype.hasOwnProperty.call(o,p)) k.push(p);
+            return k;
+          }
+        }
+
+        (function(){
+          var hiddenInput = document.getElementById('custom-2069');
+          var checkbox = document.getElementById('stayinformed');
+          var label = document.getElementById('stayinformedlabel');
+          var orgs = {
+            'Mozilla': 'https://www.mozilla.org/en-US/privacy-policy.html',
+            'Free Press Action Fund': 'http://www.freepress.net/privacy-copyright',
+            'Fight for the Future': 'http://www.fightforthefuture.org/privacy/',
+            'EFF': 'https://www.eff.org/policy',
+            'Access Now': 'https://www.accessnow.org/pages/privacy-policy',
+            'Demand Progress': 'http://www.demandprogress.org/privacy/',
+            'OpenMedia': 'http://openmedia.ca/privacy',
+            'DailyKos': 'http://www.dailykos.com/special/privacy'
+          };
+
+          var orgKeys = Object.keys(orgs);
+
+          var randomOrg = Math.floor(Math.random() * orgKeys.length);
+          var spans = label.getElementsByTagName('span');
+          var link = label.getElementsByTagName('a')[0];
+          spans[0].innerHTML = orgKeys[randomOrg];
+          spans[1].innerHTML = orgKeys[randomOrg];
+          link.href = orgs[orgKeys[randomOrg]];
+          checkbox.onchange = function (e) {
+            hiddenInput.value = checkbox.value ? orgKeys[randomOrg] : 0;
+          };
+        })();
+        (function(){
+          var fullLetter = document.getElementById('full-letter');
+          var fullLetterButton = fullLetter.getElementsByTagName('a')[0];
+          var fullLetterButtonOriginalHTML = fullLetterButton.innerHTML;
+          fullLetterButton.onclick = function (e) {
+            if (fullLetter.classList) {
+              fullLetter.classList.toggle('open');
+            }
+            else {
+              if (fullLetter.className === '') {
+                fullLetter.className = 'open';
+              }
+              else {
+                fullLetter.className = '';
+              }
+            }
+
+            if (fullLetter.className.indexOf('open') > -1) {
+              fullLetterButton.innerHTML = 'Close Letter';
+            }
+            else {
+              fullLetterButton.innerHTML = fullLetterButtonOriginalHTML;
+            }
+
+            return false;
+          };
+        })();
+        (function(){
+          // credit: http://stackoverflow.com/questions/3000649/trim-spaces-from-start-and-end-of-string
+          function trimString (str) {
+            return str.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+          }
+          // credit: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
+          function validateEmail(email) { 
+            if (email.length === 0) return false;    
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(email);
+          }
+
+          function validateZip(zip) {
+            return zip.length === 0 || (zip.length === 5 && /^\d+$/.test(zip));
+          }
+
+          var button = document.getElementById('sign-button');
+          var form = document.getElementById('sign-form');
+          var errorBox = document.getElementById('form-errors');
+
+          var inputs = {
+            'email': document.getElementById('email'),
+            'firstname': document.getElementById('firstname'),
+            'zip': document.getElementById('zip'),
+            'address': document.getElementById('addr1'),
+            'stayinformed': document.getElementById('stayinformed'),
+            'privacy': document.getElementById('custom-2066')
+          };
+
+          var placeholderSupport = 'placeholder' in document.createElement('input');
+          
+          // For ie's lack of placeholder support
+          if (!placeholderSupport) {
+            $.each(inputs, function (key, element) {
+              if (element.type === 'text') {
+                var placeholderValue = element.getAttribute('placeholder');
+                element.value = placeholderValue;
+                element.onclick = function (e) {
+                  if (element.value === placeholderValue) {
+                    element.value = '';
+                  }
+                };
+                element.onblur = function (e) {
+                  if (element.value === '') {
+                    element.value = placeholderValue;
+                  }
+                };
+              }
+            }); 
+          }
+
+          button.onclick = function (e) {
+            var failures = [];
+
+            var emailValue = inputs.email.value === inputs.email.getAttribute('placeholder') ? '' : inputs.email.value;
+            var zipValue = inputs.zip.value === inputs.zip.getAttribute('placeholder') ? '' : inputs.zip.value;
+
+            if (!validateEmail(trimString(emailValue))) { failures.push('Invalid email address.'); }
+            if (!validateZip(trimString(zipValue))) { failures.push('Invalid zip code address.'); }
+            if (!inputs.privacy.checked) { failures.push('Must agree to Mozilla\'s Privacy Policy.'); }
+
+            errorBox.innerHTML = '';
+
+            $(failures).each(function (index) {
+              var failure = failures[index];
+              var errorItem = document.createElement('li');
+              errorItem.innerHTML = failure;
+              errorBox.appendChild(errorItem);
+            });
+
+            if (failures.length) {
+              errorBox.className = '';
+            }
+            else {
+              form.submit();
+            }
+          };
+        })();
+        (function(){
+          var quotes = $('.quote-block').toArray();
+          var currentQuote = 0;
+          setInterval(function() {
+            quotes[currentQuote].className = 'quote-block off';
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quotes[currentQuote].className = 'quote-block';
+          }, 10000);
+        })();
+        (function(){
+          var categories = $('.signatory-categories li');
+          var currentSignatories = $('.signatory-category')[0];
+          var currentSignatoryCategory = $('.signatory-categories li.on')[0];
+          categories.each(function (index) {
+            var category = categories[index];
+            category.onclick = function (e) {
+              if (currentSignatories !== this) {
+                currentSignatoryCategory.className = '';
+                currentSignatories.className = 'signatory-category off';
+                currentSignatories = $('.signatory-category[data-category="' + this.getAttribute('data-category') + '"]')[0];
+                currentSignatories.className = 'signatory-category';
+                this.className = 'on';
+                currentSignatoryCategory = this;
+              }
+            };
+          });
+        })();
+        (function(){
+          function parseGoogleFormat (data) {
+            var obj = {};
+            data = data.split(',');
+            $.each(data, function (index, item) {
+              item = item.split(': ');
+              obj[item[0]] = item[1].replace(/^\s\s*/, '');
+            });
+            return obj;
+          }
+
+          var spreadsheets = [
+            {
+              name: 'public-figures',
+              url: 'https://spreadsheets.google.com/feeds/list/0AudCSf2RFSmJdDNQZFFYYlI3TTdfR0E4dHhvamFIYUE/1/public/basic?alt=json-in-script',
+              parser: function (item) {
+                return item.title.$t + ' ' + parseGoogleFormat(item.content.$t).signerlast;
+              }
+            },
+            {
+              name: 'businesses',
+              url: 'https://spreadsheets.google.com/feeds/list/0AudCSf2RFSmJdDNQZFFYYlI3TTdfR0E4dHhvamFIYUE/2/public/basic?alt=json-in-script',
+              parser: function (item) {
+                return parseGoogleFormat(item.content.$t).signingbusiness;
+              }
+            },
+            {
+              name: 'organizations',
+              url: 'https://spreadsheets.google.com/feeds/list/0AudCSf2RFSmJdDNQZFFYYlI3TTdfR0E4dHhvamFIYUE/3/public/basic?alt=json-in-script',
+              parser: function (item) {
+                return parseGoogleFormat(item.content.$t).signingorganization;
+              }
+            },
+            {
+              name: 'private-individuals',
+              url: 'https://spreadsheets.google.com/feeds/list/0AudCSf2RFSmJdDNQZFFYYlI3TTdfR0E4dHhvamFIYUE/4/public/basic?alt=json-in-script',
+              parser: function (item) {
+                return item.title.$t + ' ' + parseGoogleFormat(item.content.$t).signerlast;
+              }
+            },
+            {
+              name: 'members-of-congress',
+              url: 'https://spreadsheets.google.com/feeds/list/0AudCSf2RFSmJdDNQZFFYYlI3TTdfR0E4dHhvamFIYUE/5/public/basic?alt=json-in-script',
+              parser: function (item) {
+                return item.title.$t + ' ' + parseGoogleFormat(item.content.$t).signerlast;
+              }
+            }
+          ];
+
+          $.each(spreadsheets, function (index, item) {
+            $.ajax({
+              url: item.url,
+              dataType: 'jsonp'
+            }).done(function (data) {
+              var listElement = $('ul[data-category="' + item.name + '"]')[0];
+              listElement.innerHTML = '';
+              if (data.feed.entry) {
+                $.each(data.feed.entry, function(feedIndex, feedEntry) {
+                  var li = document.createElement('li');
+                  li.innerHTML = item.parser(feedEntry);
+                  listElement.appendChild(li);
+                });
+              }
+            });
+          });
+
+        })();
+      };
+    </script>
+  </body>
+</html>
