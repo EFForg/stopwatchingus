@@ -515,7 +515,7 @@
 
       #counter-number {
         position: absolute;
-        bottom: 15px;
+        bottom: 18px;
         width: 100%;
         font-size: 33px;
         text-align: center;
@@ -524,16 +524,25 @@
       #counter-text {
         position: absolute;
         font-size: 12px;
-        bottom: 50px;
         width: 100%;
         text-align: center;
+      }
+
+      #counter-text.top {
+        bottom: 50px;
+      }
+
+      #counter-text.bottom {
+        bottom: 5px;
+        font-size: 10px;
       }
     </style>
   </head>
   <body>
     <div id="counter-container">
-      <div id="counter-number">12,115</div>
-      <div id="counter-text">signatures so far</div>
+      <div id="counter-text" class="top">signatures so far</div>
+      <div id="counter-number">27,000</div>
+      <div id="counter-text" class="bottom">6pm EST 6/11/2013</div>
     </div>
     <div class="wrapper top">
       <div class="content">
