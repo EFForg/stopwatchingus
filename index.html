@@ -494,9 +494,47 @@
       .quote-block .author a .source:before {
         content: ' - ';
       }
+
+      #counter-container {
+        position: fixed;
+        top: -135px;
+        right: -185px;
+        background-color: #A61919;
+        width: 350px;
+        height: 250px;
+        color: #fff;
+        text-align: center;
+        -webkit-transform: rotate(45deg);
+           -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+             -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+        z-index: 900;
+        box-shadow: 0 2px 3px rgb(83, 83, 83);
+      }
+
+      #counter-number {
+        position: absolute;
+        bottom: 15px;
+        width: 100%;
+        font-size: 33px;
+        text-align: center;
+      }
+
+      #counter-text {
+        position: absolute;
+        font-size: 12px;
+        bottom: 50px;
+        width: 100%;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
+    <div id="counter-container">
+      <div id="counter-number">12,115</div>
+      <div id="counter-text">signatures so far</div>
+    </div>
     <div class="wrapper top">
       <div class="content">
         <div class="quote-container">
