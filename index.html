@@ -407,6 +407,7 @@
         text-align: center;
         font-size: .6em;
         padding-bottom: 20px;
+        margin-top: 20px;
       }
 
       #share-container {
@@ -779,6 +780,7 @@
           }, 10000);
         })();
         (function(){
+          var container = $('.signatories-container')[0];
           var categories = $('.signatory-categories li');
           var currentSignatories = $('.signatory-category')[0];
           var currentSignatoryCategory = $('.signatory-categories li.on')[0];
@@ -792,11 +794,11 @@
                 currentSignatories.className = 'signatory-category';
                 this.className = 'on';
                 currentSignatoryCategory = this;
+                container.style.height = currentSignatories.offsetHeight + 20 + 'px';
               }
             };
           });
-        })();
-        (function(){
+
           function parseGoogleFormat (data) {
             var obj = {};
             data = data.split(',');
@@ -859,6 +861,10 @@
                   listElement.appendChild(li);
                 });
               }
+
+              setTimeout(function () {
+                container.style.height = currentSignatories.offsetHeight + 20 + 'px';
+              }, 100);
             });
           });
 
