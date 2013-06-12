@@ -26,6 +26,15 @@ var sheets = [
 
 
 var reqOptions = {};
+var bsdReqOptions = {
+  host: 'sendto.mozilla.org',
+  port: 443,
+  path: '/utils/cons_counter/signup_counter.ajax.php?signup_form_id=95',
+  method: 'GET',
+  headers: {
+    'Content-Type': 'text/plain'
+  }
+};
 
 for (var i in sheets){
   reqOptions[sheets[i]] = {
@@ -41,18 +50,42 @@ for (var i in sheets){
 
 function forEachSheet(fn){
   for (var i in sheets){
-    // fn(name, options, id)
+    // fn(name, options)
     var sheetName = sheets[i];
     fn(sheetName, reqOptions[sheetName], parseInt(i) + 1);
   }
 }
 
+function collectBSDData(){
+  outstandingReqs++;
+  var req = https.get(bsdReqOptions, function(resp){
+    var chunkData = '';
+
+    resp.on('data', function(chunk) {
+      chunkData += chunk;
+    });
+
+    resp.on('end', function(){
+      data['total'] = Number(chunkData);
+      complete();
+    });
+
+    req.on('error', function(err) {
+      complete();
+      data['total'] = 0;
+      console.log(err);
+    });
+  });
+}
+
 function collectData(){
   data = {};
-  forEachSheet(function(sheet, options, id){
+
+  collectBSDData();
+
+  forEachSheet(function(sheet, options){
     outstandingReqs++;
     var req = https.get(options, function(resp){
-      
       
       var chunkData = '';
 
@@ -91,7 +124,7 @@ function collectData(){
             }
           }
         }
-        data[sheet] = names
+        data[sheet] = names;
         complete();
       });
     });

@@ -916,20 +916,39 @@
           }, 100);
         })();
         (function(){
+          var COUNTER_ADJUSTMENT = 21526;
+
           $.ajax({
             url: 'https://s3.amazonaws.com/us.stopwatching/signatories.json',
             dataType: 'json'
           }).done(function(data){
             for (var sign_type in data) {
-              var $listElement = $('ul[data-category="' + sign_type + '"]');
-              if ($listElement.length) {
-                var listElement = $listElement[0];
-                listElement.innerHTML = '';
-                $.each(data[sign_type], function(i, signatory) {
-                  var li = document.createElement('li');
-                  li.innerHTML = signatory;
-                  listElement.appendChild(li);
-                });
+              if (sign_type === 'total') {
+                var now = new Date();
+                var hours = now.getUTCHours() - 4;
+                var adjustedHours = hours > 12 ? hours - 12 : hours;
+                var counterValue = (COUNTER_ADJUSTMENT + Number(data[sign_type])) + '';
+
+                // from http://stackoverflow.com/questions/2901102/how-to-print-a-number-with-commas-as-thousands-separators-in-javascript
+                counterValue = counterValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+                $('#counter-number')[0].innerHTML = counterValue;
+                $('.counter-text.bottom')[0].innerHTML = adjustedHours +
+                  ':' + now.getMinutes() + 
+                  (hours > 12 ? 'pm' : 'am') + ' EST ' +
+                  now.getDate() + '/' + now.getMonth() + '/' + now.getYear();
+              }
+              else {
+                var $listElement = $('ul[data-category="' + sign_type + '"]');
+                if ($listElement.length) {
+                  var listElement = $listElement[0];
+                  listElement.innerHTML = '';
+                  $.each(data[sign_type], function(i, signatory) {
+                    var li = document.createElement('li');
+                    li.innerHTML = signatory;
+                    listElement.appendChild(li);
+                  });
+                }
               }
             }
 
