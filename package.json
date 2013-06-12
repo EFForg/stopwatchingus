@@ -1,0 +1,23 @@
+{
+  "name": "stopwatchingus",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/simonwex/stopwatchingus.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "engines": {
+    "node": "0.10.x",
+    "npm":  "1.2.x"
+  },
+  "gitHead": "c1c62b8dd8eed6268a620dd143b185b0f50ee852",
+  "dependencies": {
+    "knox": "~0.8.3"
+  }
+}
