@@ -398,8 +398,9 @@
         margin: 0;
       }
 
-      #form-errors.hidden {
+      .hidden {
         visibility: hidden;
+        display: none;
       }
 
       #thanks {
@@ -616,7 +617,9 @@
           <div class="checkbox-wrapper">
             <input type="checkbox" name="custom-2066" id="custom-2066">
             <label for="custom-2066">
-              * I agree to Mozilla's <a target="_blank" href="https://www.mozilla.org/en-US/privacy-policy.html">privacy policy</a> and to having my information presented to US Congress in the form of a letter to be delivered by Fight for the Future (see its <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a>).
+              *
+              <span data-version="mozilla"> I agree to Mozilla's <a target="_blank" href="https://www.mozilla.org/en-US/privacy-policy.html">privacy policy</a> and to having my information presented to US Congress in the form of a letter to be delivered by Fight for the Future (see its <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a>).</span>
+              <span data-version="fftf" class="hidden"> I agree to Fight For the Future's <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a> and consent to having my information shared with third parties for the sole purpose of facilitating delivery of these letters to Congress.</span>
             </label>
           </div>
           <div class="checkbox-wrapper">
@@ -647,6 +650,7 @@
             <li>American Library Association</li>
             <li>Americans for Limited Government</li>
             <li>Americans for Job Security</li>
+            <li>Bill of Rights Defense Committee</li>
             <li>Calyx Institute</li>
             <li>Campaign for Liberty</li>
             <li>Center for Democracy and Technology</li>
@@ -654,18 +658,27 @@
             <li>Centro de Cultura Luiz Freire</li>
             <li>Competitive Enterprise Institute</li>
             <li>Consumer Watchdog</li>
+            <li>CREDO Action</li>
+            <li>Daily Kos</li>
             <li>Demand Progress</li>
             <li>Defending Dissent</li>
             <li>Detroit Digital Justice Coalition</li>
             <li>Electronic Frontier Foundation</li>
+            <li>Electronic Frontiers Australia</li>
+            <li>EngageMedia</li>
             <li>Entertainment Consumers Association (ECA)</li>
             <li>Fight for the Future</li>
             <li>Free Press</li>
+            <li>Free Software Foundation</li>
             <li>Freedom of the Press Foundation</li>
             <li>Freedom Works</li>
+            <li>Gandi.net</li>
+            <li>Generation Justice</li>
+            <li>GNOME</li>
             <li>Greenpeace USA</li>
             <li>Guardian Project</li>
             <li>Internet Archive</li>
+            <li>League of Technical Voters</li>
             <li>Learning About Multimedia Project</li>
             <li>Liberty Coalition</li>
             <li>LibrarianShipwreck</li>
@@ -675,7 +688,10 @@
             <li>Media Mobilizing Project</li>
             <li>MoveOn.org</li>
             <li>Mozilla</li>
+            <li>National Association of Criminal Defense Lawyers</li>
             <li>National Coalition Against Censorship </li>
+            <li>National Security Counselors</li>
+            <li>Occupy Wall Street NYC</li>
             <li>Open Technology Institute at New America Foundation</li>
             <li>Participatory Politics Foundation </li>
             <li>PolitiHacks</li>
@@ -683,26 +699,32 @@
             <li>Privacy and Access Council of Canada</li>
             <li>Privacy Camp</li>
             <li>Progressive Change Campaign Committee</li>
+            <li>Progressive Librarians Guild</li>
             <li>Public Knowledge</li>
             <li>R Street Institute</li>
+            <li>Restore America's Voice</li>
             <li>RevolutionTruth</li>
             <li>Rights Working Group</li>
             <li>Rocky Mountain Civil Liberties Association</li>
             <li>RootsAction.org</li>
+            <li>Tactical Tech</li>
             <li>TechFreedom</li>
             <li>Tenth Amendment Center</li>
             <li>The Other 98%</li>
+            <li>Tor</li>
+            <li>Urbana Champaign Independent Media Center</li>
             <li>World Wide Web Foundation</li>
           </ul>
           <ul class="signatory-category off" data-category="public-figures">
             <li>John Cusack</li>
+            <li>Daniel Ellsberg</li>
             <li>Birgitta Jónsdóttir</li>
           </ul>
           <ul class="signatory-category off" data-category="businesses">
             <li>Amicus</li>
             <li>BoingBoing</li>
             <li>Control Shift Labs</li>
-            <li>CREDO Mobile</li>
+            <li>DuckDuckGo</li>
             <li>DSLReports.com</li>
             <li>Ghostery</li>
             <li>Namecheap</li>
@@ -711,16 +733,19 @@
             <li>ThoughtWorks</li>
             <li>Personal Democracy Media</li>
             <li>reddit</li>
+            <li>Rocket Science</li>
           </ul>
           <ul class="signatory-category off" data-category="private-individuals">
             <li>John Perry Barlow</li>
+            <li>Britt Blaser</li>
             <li>Gabriella Coleman</li>
             <li>Cory Doctorow</li>
+            <li>Dan Gillmor</li>
             <li>Xeni Jardin</li>
             <li>Sina Khanifar</li>
             <li>Derek Khanna</li>
             <li>Brian Knappenberger</li>
-            <li>Rebecca Mackinnon</li>
+            <li>Rebecca  Mackinnon</li>
             <li>David Moore</li>
             <li>Alexis Ohanian</li>
             <li>Laura Poitras</li>
@@ -740,6 +765,13 @@
     <script>
       // For ie. document seems to not have querySelector yet.
       window.onload = function () {
+        function getParameterByName(name) {
+          name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+          var regex = new RegExp("[\\?&]" + name + "=([^&\/#]*)"),
+              results = regex.exec(location.search);
+          return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
         // ie shims
         if (!Object.keys) {
           Object.keys = function(o) {
@@ -755,28 +787,67 @@
           var hiddenInput = document.getElementById('custom-2069');
           var checkbox = document.getElementById('stayinformed');
           var label = document.getElementById('stayinformedlabel');
-          var orgs = {
-            'Mozilla': 'https://www.mozilla.org/en-US/privacy-policy.html',
-            'Free Press and the Free Press Action Fund': 'http://www.freepress.net/privacy-copyright',
-            'Fight for the Future': 'http://www.fightforthefuture.org/privacy/',
-            'EFF': 'https://www.eff.org/policy',
-            'Access Now': 'https://www.accessnow.org/pages/privacy-policy',
-            'Demand Progress': 'http://www.demandprogress.org/privacy/',
-            'OpenMedia': 'http://openmedia.ca/privacy',
-            'DailyKos': 'http://www.dailykos.com/special/privacy'
+
+          var referalMap = {
+            'moz': {
+              name: 'Mozilla',
+              policy: 'https://www.mozilla.org/en-US/privacy-policy.html'
+            },
+           'fp': {
+              name: 'Free Press and the Free Press Action Fund',
+              policy: 'http://www.freepress.net/privacy-copyright'
+            },
+            'fftf': {
+              name: 'Fight for the Future',
+              policy: 'http://www.fightforthefuture.org/privacy/'
+            },
+            'eff': {
+              name: 'EFF',
+              policy: 'https://www.eff.org/policy'
+            },
+            'an': {
+              name: 'Access Now',
+              policy: 'https://www.accessnow.org/pages/privacy-policy'
+            },
+            'dp': {
+              name: 'Demand Progress',
+              policy: 'http://www.demandprogress.org/privacy/'
+            },
+            'om': {
+              name: 'OpenMedia',
+              policy: 'http://openmedia.ca/privacy'
+            },
+            'dk': {
+              name: 'DailyKos',
+              policy: 'http://www.dailykos.com/special/privacy'
+            }
           };
 
-          var orgKeys = Object.keys(orgs);
+          var referalKeys = Object.keys(referalMap);
+          var referalParam = getParameterByName('r');
+          var referalOrg;
 
-          var randomOrg = Math.floor(Math.random() * orgKeys.length);
+          if (referalParam in referalMap) {
+            referalOrg = referalMap[referalParam];
+          }
+          else {
+            var randomOrgIndex = Math.floor(Math.random() * referalKeys.length);
+            referalOrg = referalMap[referalKeys[randomOrgIndex]];
+          }
+
           var spans = label.getElementsByTagName('span');
           var link = label.getElementsByTagName('a')[0];
-          spans[0].innerHTML = orgKeys[randomOrg];
-          spans[1].innerHTML = orgKeys[randomOrg];
-          link.href = orgs[orgKeys[randomOrg]];
+          spans[0].innerHTML = referalOrg.name;
+          spans[1].innerHTML = referalOrg.name;
+          link.href = referalOrg.policy;
           checkbox.onchange = function (e) {
-            hiddenInput.value = checkbox.value ? orgKeys[randomOrg] : 0;
+            hiddenInput.value = checkbox.value ? referalOrg.name : 0;
           };
+
+          if (getParameterByName('p') === 'fftf') {
+            $('label[for="custom-2066"] > span[data-version="mozilla"]')[0].className = 'hidden';
+            $('label[for="custom-2066"] > span[data-version="fftf"]')[0].className = '';
+          }
         })();
         (function(){
           var fullLetter = document.getElementById('full-letter');
@@ -864,7 +935,7 @@
 
             if (!validateEmail(trimString(emailValue))) { failures.push('Invalid email address.'); }
             if (!validateZip(trimString(zipValue))) { failures.push('Invalid zip code address.'); }
-            if (!inputs.privacy.checked) { failures.push('Must agree to Mozilla\'s Privacy Policy.'); }
+            if (!inputs.privacy.checked) { failures.push('Must agree to Privacy Policy.'); }
 
             errorBox.innerHTML = '';
 
