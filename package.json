@@ -11,7 +11,7 @@
     "url": "git://github.com/simonwex/stopwatchingus.git"
   },
   "author": "",
-  "license": "BSD",
+  "license": "MPL2",
   "engines": {
     "node": "0.10.x",
     "npm":  "1.2.x"
