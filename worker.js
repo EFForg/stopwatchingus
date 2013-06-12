@@ -95,7 +95,7 @@ function collectData(){
 
       resp.on('end', function(){
         var doc = JSON.parse(chunkData);
-        
+
         var entries = doc.feed.entry;
         var names = [];
         var name = null;
@@ -104,7 +104,7 @@ function collectData(){
           var content = entries[i].content['$t']
           
           var matches = cell.match(/(\D+)(\d+)/);
-          
+
           var column = matches[1];
           var row = matches[2];
           
@@ -124,6 +124,12 @@ function collectData(){
             }
           }
         }
+
+        // add last name if loop worked
+        if (name){
+          names.push(name.join(' '));
+        }
+
         data[sheet] = names;
         complete();
       });
