@@ -400,7 +400,6 @@
 
       .hidden {
         visibility: hidden;
-        display: none;
       }
 
       #thanks {
@@ -617,9 +616,7 @@
           <div class="checkbox-wrapper">
             <input type="checkbox" name="custom-2066" id="custom-2066">
             <label for="custom-2066">
-              *
-              <span data-version="mozilla"> I agree to Mozilla's <a target="_blank" href="https://www.mozilla.org/en-US/privacy-policy.html">privacy policy</a> and to having my information presented to US Congress in the form of a letter to be delivered by Fight for the Future (see its <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a>).</span>
-              <span data-version="fftf" class="hidden"> I agree to Fight For the Future's <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a> and consent to having my information shared with third parties for the sole purpose of facilitating delivery of these letters to Congress.</span>
+              * I agree to Mozilla's <a target="_blank" href="https://www.mozilla.org/en-US/privacy-policy.html">privacy policy</a> and to having my information presented to US Congress in the form of a letter to be delivered by Fight for the Future (see its <a target="_blank" href="http://www.fightforthefuture.org/privacy/">privacy policy</a>).
             </label>
           </div>
           <div class="checkbox-wrapper">
@@ -844,11 +841,6 @@
           checkbox.onchange = function (e) {
             hiddenInput.value = checkbox.value ? referalOrg.name : 0;
           };
-
-          if (getParameterByName('p') === 'fftf') {
-            $('label[for="custom-2066"] > span[data-version="mozilla"]')[0].className = 'hidden';
-            $('label[for="custom-2066"] > span[data-version="fftf"]')[0].className = '';
-          }
         })();
         (function(){
           var fullLetter = document.getElementById('full-letter');
