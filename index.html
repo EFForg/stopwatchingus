@@ -942,6 +942,10 @@
                 });
               }
             }
+            // resize after new content
+            var container = $('.signatories-container')[0];
+            var currentSignatories = $('.signatory-category')[0];
+            container.style.height = currentSignatories.offsetHeight + 20 + 'px';
           });
         })();
       };
