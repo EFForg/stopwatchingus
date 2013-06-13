@@ -1002,7 +1002,7 @@
                 $('.counter-text.bottom')[0].innerHTML = adjustedHours +
                   ':' + ( now.getMinutes() < 10 ? "0" : "" ) + now.getMinutes() +
                   (hours > 12 ? 'pm' : 'am') + ' EST ' +
-                  now.getDate() + '/' + now.getMonth() + '/' + ('' + now.getFullYear()).substr(2,2);
+                  now.getDate() + '/' + ( now.getMonth() + 1 ) + '/' + ('' + now.getFullYear()).substr(2,2);
               }
               else {
                 var $listElement = $('ul[data-category="' + sign_type + '"]');
