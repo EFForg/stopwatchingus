@@ -991,6 +991,7 @@
               if (sign_type === 'total') {
                 var now = new Date();
                 var hours = now.getUTCHours() - 4;
+                if (hours < 0) hours = 24 + hours;
                 var adjustedHours = hours > 12 ? hours - 12 : hours;
                 var counterValue = (COUNTER_ADJUSTMENT + Number(data[sign_type])) + '';
 
