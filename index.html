@@ -1000,7 +1000,7 @@
 
                 $('#counter-number')[0].innerHTML = counterValue;
                 $('.counter-text.bottom')[0].innerHTML = adjustedHours +
-                  ':' + now.getMinutes() + 
+                  ':' + ( now.getMinutes() < 10 ? "0" : "" ) + now.getMinutes() +
                   (hours > 12 ? 'pm' : 'am') + ' EST ' +
                   now.getDate() + '/' + now.getMonth() + '/' + ('' + now.getFullYear()).substr(2,2);
               }
