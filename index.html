@@ -351,10 +351,6 @@
                transition: height .25s;
       }
 
-      #full-letter.open {
-        height: 850px;
-      }
-
       #full-letter a {
         color: rgb(39, 170, 225);
         cursor: pointer;
@@ -1105,29 +1101,16 @@
           };
         })();
         (function(){
+          var OPEN_HEIGHT_ADJUSTMENT = 100;
           var fullLetter = document.getElementById('full-letter');
           var fullLetterButton = fullLetter.getElementsByTagName('a')[0];
+          var letterContents = $('#letter-contents')[0];
           var fullLetterButtonOriginalHTML = fullLetterButton.innerHTML;
+          var letterIsOpen = false;
           fullLetterButton.onclick = function (e) {
-            if (fullLetter.classList) {
-              fullLetter.classList.toggle('open');
-            }
-            else {
-              if (fullLetter.className === '') {
-                fullLetter.className = 'open';
-              }
-              else {
-                fullLetter.className = '';
-              }
-            }
-
-            if (fullLetter.className.indexOf('open') > -1) {
-              fullLetterButton.innerHTML = 'Close Letter';
-            }
-            else {
-              fullLetterButton.innerHTML = fullLetterButtonOriginalHTML;
-            }
-
+            letterIsOpen = !letterIsOpen;
+            fullLetter.style.height = letterIsOpen ? letterContents.offsetHeight + OPEN_HEIGHT_ADJUSTMENT + 'px' : '';
+            fullLetterButton.innerHTML = letterIsOpen ? 'Close Letter' : fullLetterButtonOriginalHTML;
             return false;
           };
         })();
