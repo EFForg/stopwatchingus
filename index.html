@@ -21,6 +21,16 @@
     <link rel="shortcut icon" type="image/png" href="https://sendto.mozilla.org/page/-/ssou-logos/fav-eye-con.png">
     <title>Stop Watching Us</title>
     <script type="text/javascript" src="https://sendto.mozilla.org/page/-/ssou-logos/jquery-1.10.1.min.js"></script>
+    <meta name="description" content="Join Mozilla, the EFF, Free Press, Access, Demand Progress and others in asking Congress to restore our rights to privacy." />
+
+    <!-- Facebook OpenGraph tags -->
+    <meta property="og:title" content="Everyone is talking about the NSA. These people are doing something about it." />
+    <meta property="og:description" content="By now you've heard that the U.S. gov't is watching your every move. Now turn anger to action." />
+    <meta property="og:type" content="cause" />
+    <meta property="og:url" content="https://www.stopwatching.us" />
+    <meta property="og:image" content="https://sendto.mozilla.org/page/-/ssou-logos/fb-share.jpg" />
+    <meta property="og:site_name" content="StopWatching.Us" />
+
     <style>
       @font-face {
         font-family: 'OpenSansLightRegular';
@@ -95,7 +105,7 @@
       }
 
       .signatories-container {
-        height: 170px;
+        height: 340px;
         webkit-transition: height .5s;
            moz-transition: height .5s;
             ms-transition: height .5s;
@@ -542,8 +552,8 @@
   <body>
     <div id="counter-container">
       <div class="counter-text top">signatures so far</div>
-      <div id="counter-number">66,537</div>
-      <div class="counter-text bottom">1pm EST 6/12/2013</div>
+      <div id="counter-number"><noscript>120,000</noscript></div>
+      <div class="counter-text bottom"><noscript>1pm EST 6/12/2013</noscript></div>
     </div>
     <div class="wrapper top">
       <div class="content">
@@ -670,7 +680,6 @@
             <li>Free Software Foundation</li>
             <li>Freedom of the Press Foundation</li>
             <li>Freedom Works</li>
-            <li>Gandi.net</li>
             <li>Generation Justice</li>
             <li>GNOME</li>
             <li>Greenpeace USA</li>
@@ -725,6 +734,7 @@
             <li>Control Shift Labs</li>
             <li>DuckDuckGo</li>
             <li>DSLReports.com</li>
+            <li>Gandi.net</li>
             <li>Ghostery</li>
             <li>Namecheap</li>
             <li>NodeWest</li>
@@ -819,6 +829,10 @@
             'dk': {
               name: 'DailyKos',
               policy: 'http://www.dailykos.com/special/privacy'
+            },
+            'pk': {
+              name: 'Public Knowledge',
+              policy: 'http://publicknowledge.org/about/privacy'
             }
           };
 
@@ -981,7 +995,7 @@
           }, 100);
         })();
         (function(){
-          var COUNTER_ADJUSTMENT = 21526;
+          var COUNTER_ADJUSTMENT = 23470;
 
           $.ajax({
             url: 'https://s3.amazonaws.com/us.stopwatching/signatories.json',
@@ -991,6 +1005,8 @@
               if (sign_type === 'total') {
                 var now = new Date();
                 var hours = now.getUTCHours() - 4;
+                if (hours < 0) hours = 24 + hours;
+
                 var adjustedHours = hours > 12 ? hours - 12 : hours;
                 var counterValue = (COUNTER_ADJUSTMENT + Number(data[sign_type])) + '';
 
@@ -999,9 +1015,9 @@
 
                 $('#counter-number')[0].innerHTML = counterValue;
                 $('.counter-text.bottom')[0].innerHTML = adjustedHours +
-                  ':' + now.getMinutes() + 
+                  ':' + ( now.getMinutes() < 10 ? "0" : "" ) + now.getMinutes() +
                   (hours > 12 ? 'pm' : 'am') + ' EST ' +
-                  now.getDate() + '/' + now.getMonth() + '/' + ('' + now.getFullYear()).substr(2,2);
+                  now.getDate() + '/' + ( now.getMonth() + 1 ) + '/' + ('' + now.getFullYear()).substr(2,2);
               }
               else {
                 var $listElement = $('ul[data-category="' + sign_type + '"]');
