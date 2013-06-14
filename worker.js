@@ -17,10 +17,9 @@ var outstandingReqs = 0;
 var data = null;
 
 var sheets = [
-  "public-figures",
   "businesses",
   "organizations",
-  "private-individuals",
+  "individuals",
   "members-of-congress"
 ];
 
@@ -52,7 +51,7 @@ function forEachSheet(fn){
   for (var i in sheets){
     // fn(name, options)
     var sheetName = sheets[i];
-    fn(sheetName, reqOptions[sheetName], parseInt(i) + 1);
+    fn(sheetName, reqOptions[sheetName]);
   }
 }
 
