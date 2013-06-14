@@ -274,7 +274,7 @@
 	$(document).ready(function(){$("#facebook").attr("onclick","openFacebook(); return false;");$("#tweet-box").attr("onclick","openTwitter(); return false;")})
   function randomize(e){var t=e.length,n,r;if(t===0)return false;while(--t){n=Math.floor(Math.random()*(t+1));r=e[t];e[t]=e[n];e[n]=r}}
   function openFacebook(){var e="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.stopwatching.us";window.open(e,"Share on Facebook","width=626,height=436");return false}
-  function openTwitter(){var e=["fightfortheftr","mozilla","accessnow","eff","sinak","freepress","demandprogress"];randomize(e);var t="https://twitter.com/intent/tweet?url=https%3A%2F%2Fstopwatching.us&text=Join%20me%20in%20calling%20on%20the%20NSA%20and%20the%20US%20government%20to%20%23stopwatchingus.%20%20Sign%20this%20now%3A&related=stopwatchingus%2C"+e[0]+"%2C"+e[1]+"%2C"+e[2]+"%2C"+e[3]+"%2C"+e[4];window.open(t,"Twitter","width=550,height=420");return false}
+  function openTwitter(){var e=["fightfortheftr","mozilla","accessnow","eff","publicknowledge","sinak","freepress","demandprogress"];randomize(e);var t="https://twitter.com/intent/tweet?url=https%3A%2F%2Fstopwatching.us&text=Join%20me%20in%20calling%20on%20the%20NSA%20and%20the%20US%20government%20to%20%40stopwatchingus.%20%20Sign%20this%20now%3A&related=stopwatchingus%2C"+e[0]+"%2C"+e[1]+"%2C"+e[2]+"%2C"+e[3]+"%2C"+e[4];window.open(t,"Twitter","width=550,height=420");return false}
 </script>
 </body>
 </html>
