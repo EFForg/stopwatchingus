@@ -529,6 +529,10 @@
         bottom: 5px;
         font-size: 10px;
       }
+
+      #individuals-see-everyone {
+        margin-top: 10px;
+      }
     </style>
   </head>
   <body>
@@ -960,7 +964,7 @@
             <li>Sina Khanifar</li>
             <li>Derek Khanna</li>
             <li>Brian Knappenberger</li>
-            <li>Rebecca  Mackinnon</li>
+            <li>Rebecca Mackinnon</li>
             <li>David Moore</li>
             <li>Alexis Ohanian</li>
             <li>Laura Poitras</li>
@@ -986,12 +990,21 @@
           <ul class="signatory-category off" data-category="members-of-congress">
           </ul>
         </div>
+        <div id="individuals-see-everyone" style="visibility: hidden;">
+          <img style="position:relative; top: 3px; margin-right: 5px; height: 20px;" src="https://sendto.mozilla.org/page/-/ssou-logos/twitter-bird-white-on-blue.png">
+          <a target="_blank" href="https://twitter.com/search/realtime?q=%40stopwatchingus%20included%20signatories&src=typd">See everyone</a>
+        </div>
         <div id="thanks">Thanks to <a target="_blank" href="http://www.initiatedemand.com/">Initiate Demand</a> for providing the stopwatching.us domain name.</div>
       </div>
     </div>
     <div id="share-container">
       <div class="content" style="padding-bottom: 0;">
-        <img src="https://sendto.mozilla.org/page/-/ssou-logos/twitter-bird-white-on-blue.png">Tweet <a target="_blank" href="https://twitter.com/share?url=&text=I%20would%20like%20to%20be%20included%20on%20the%20list%20of%20signatories.%20@stopwatchingus">@stopwatchingus</a> to be listed or ask questions.
+        <img src="https://sendto.mozilla.org/page/-/ssou-logos/twitter-bird-white-on-blue.png">
+        Tweet
+        <a target="_blank" href="https://twitter.com/share?url=&text=I%20would%20like%20to%20be%20included%20on%20the%20list%20of%20signatories.%20@stopwatchingus">
+          @stopwatchingus
+        </a>
+        to be listed or ask questions.
       </div>
     </div>
     <script>
@@ -1182,16 +1195,23 @@
           var currentSignatories = $('.signatory-category')[0];
           var currentSignatoryCategory = $('.signatory-categories li.on')[0];
           categories.each(function (index) {
-            var category = categories[index];
-            category.onclick = function (e) {
+            var categoryElement = categories[index];
+            var category = categoryElement.getAttribute('data-category');
+            categoryElement.onclick = function (e) {
               if (currentSignatories !== this) {
                 currentSignatoryCategory.className = '';
                 currentSignatories.className = 'signatory-category off';
-                currentSignatories = $('.signatory-category[data-category="' + this.getAttribute('data-category') + '"]')[0];
+                currentSignatories = $('.signatory-category[data-category="' + category + '"]')[0];
                 currentSignatories.className = 'signatory-category';
                 this.className = 'on';
                 currentSignatoryCategory = this;
                 container.style.height = currentSignatories.offsetHeight + 20 + 'px';
+                if (category === 'individuals') {
+                  $('#individuals-see-everyone')[0].style.visibility = 'visible';
+                }
+                else {
+                  $('#individuals-see-everyone')[0].style.visibility = 'hidden';
+                }
               }
             };
           });
