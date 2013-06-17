@@ -40,7 +40,6 @@
         font-weight: normal;
         margin: 0;
         padding: 0;
-        text-align: center;
         width: 100%;
       }
 
@@ -116,10 +115,18 @@
         color: rgb(39, 170, 225);
       }
 
-      .signatory-category li, .signatory-categories li {
+      .signatory-categories li {
         display: inline-block;
         margin: 0;
         padding: 0;
+      }
+
+      .signatory-category li {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        padding-right: 5px;
+        color: rgb(39, 170, 225);
       }
 
       .signatory-categories li {
@@ -150,11 +157,6 @@
 
       .signatory-categories li.on:hover {
         text-decoration: none;
-      }
-
-      .signatory-category li {
-        padding-right: 5px;
-        color: rgb(39, 170, 225);
       }
 
       .signatory-category li:after {
@@ -532,6 +534,7 @@
 
       #individuals-see-everyone {
         margin-top: 10px;
+        text-align: center;
       }
     </style>
   </head>
