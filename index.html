@@ -1253,7 +1253,7 @@
                   listElement.innerHTML = '';
                   $.each(data[sign_type], function(i, signatory) {
                     var li = document.createElement('li');
-                    li.innerHTML = signatory;
+                    li.appendChild(document.createTextNode(signatory));
                     listElement.appendChild(li);
                   });
                 }
