@@ -1093,7 +1093,7 @@
           spans[1].innerHTML = referalOrg.name;
           link.href = referalOrg.policy;
           checkbox.onchange = function (e) {
-            hiddenInput.value = checkbox.value ? referalOrg.name : 0;
+            hiddenInput.value = checkbox.checked ? referalOrg.name : '';
           };
         })();
         (function(){
