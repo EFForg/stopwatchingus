@@ -44,7 +44,7 @@
       }
 
       body {
-        overflow-x:hidden;
+        overflow-x: hidden;
       }
 
       a {
@@ -280,8 +280,11 @@
 
       .quote-block {
         position: absolute;
-        width: 760px;
-        margin: 0 20px;
+        width: 520px;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-left: 135px;
+
         height: 110px;
         text-align: center;
         webkit-transition: opacity 1s, visibility 1s;
@@ -493,7 +496,15 @@
       #counter-container {
         position: absolute;
         top: -135px;
-        right: -185px;
+        right: 0;
+        width: 165px;
+        height: 310px;
+        overflow: hidden;
+        z-index: 900;
+      }
+
+      #counter-content {
+        position: absolute;
         background-color: #A61919;
         width: 350px;
         height: 250px;
@@ -504,7 +515,6 @@
             -ms-transform: rotate(45deg);
              -o-transform: rotate(45deg);
                 transform: rotate(45deg);
-        z-index: 900;
         box-shadow: 0 2px 3px rgb(83, 83, 83);
       }
 
@@ -540,9 +550,11 @@
   </head>
   <body>
     <div id="counter-container">
-      <div class="counter-text top">signatures so far</div>
-      <div id="counter-number"><noscript>125,000</noscript></div>
-      <div class="counter-text bottom"><noscript>1:30am EST 14/6/2013</noscript></div>
+      <div id="counter-content">
+        <div class="counter-text top">signatures so far</div>
+        <div id="counter-number"><noscript>125,000</noscript></div>
+        <div class="counter-text bottom"><noscript>1:30am EST 14/6/2013</noscript></div>
+      </div>
     </div>
     <div class="wrapper top">
       <div class="content">
@@ -1220,12 +1232,7 @@
           }, 100);
         })();
         (function(){
-          var COUNTER_ADJUSTMENT = 23470;
-
-          $.ajax({
-            url: 'https://s3.amazonaws.com/us.stopwatching/signatories.json',
-            dataType: 'json'
-          }).done(function(data){
+          function useData (data) {
             for (var sign_type in data) {
               if (sign_type === 'total') {
                 var now = new Date();
@@ -1242,6 +1249,7 @@
                   ':' + ( now.getMinutes() < 10 ? "0" : "" ) + now.getMinutes() +
                   (hours > 12 ? 'pm' : 'am') + ' EST ' +
                   now.getDate() + '/' + ( now.getMonth() + 1 ) + '/' + ('' + now.getFullYear()).substr(2,2);
+                  console.log(counterValue);
               }
               else {
                 var $listElement = $('ul[data-category="' + sign_type + '"]');
@@ -1261,7 +1269,24 @@
             var container = $('.signatories-container')[0];
             var currentSignatories = $('.signatory-category')[0];
             container.style.height = currentSignatories.offsetHeight + 20 + 'px';
-          });
+          }
+
+          var COUNTER_ADJUSTMENT = 23470;
+          $.ajax({
+            url: 'https://s3.amazonaws.com/us.stopwatching/signatories.json',
+            dataType: 'json',
+            error: function (err) {
+              $.ajax({
+                url: 'https://s3.amazonaws.com/us.stopwatching/signatories.js',
+                dataType: 'jsonp',
+                jsonpCallback: 'get_dwu_signatories',
+                error: function (err) {
+                  $('#counter-number')[0].innerHTML = '476,246';
+                  $('.counter-text.bottom')[0].innerHTML = '10:33am EST 25/6/13';
+                }
+              }).done(useData);
+            }
+          }).done(useData);
         })();
       };
     </script>

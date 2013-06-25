@@ -151,7 +151,7 @@ function complete(){
 }
 
 function wrapJSONP(data){
-  return "function get_dwu_signatories(" + data + ");";
+  return "get_dwu_signatories(" + data + ");";
 }
 
 function saveData(data){
