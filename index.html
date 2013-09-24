@@ -1,3 +1,4 @@
+
 <!-- Begin Wrapper > Header HTML -->
 <!--[if lt IE 7]>              <html lang="en" class="ie6"> <![endif]-->
 <!--[if IE 7]>                 <html lang="en" class="ie7"> <![endif]-->
@@ -8,7 +9,8 @@
 <!--<![endif]-->
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8"><title>Stop Watching Us</title>
+    <meta charset="utf-8">
+    <title>Stop Watching Us - A Coalition Against Mass Surveillance</title>
     <!-- Empty conditional comment hack
     Prevents lo d stacking in IE8
     See http://www.phpied.com/conditional-comments-block-downloads/ -->
@@ -18,8 +20,7 @@
     <meta name="viewport" content="initial-scale=1.0, width=device-width">
     <meta name="WT.si_n" content="Stop Watching Us">
     <meta name="WT.si_x" content="1">
-    <link rel="shortcut icon" type="image/png" href="https://sendto.mozilla.org/page/-/ssou-logos/fav-eye-con.png">
-    <title>Stop Watching Us</title>
+    <link rel="shortcut icon" type="image/ico" href="https://sendto.mozilla.org/page/-/ssou-logos/fav-eye-con.png">
     <script type="text/javascript" src="https://sendto.mozilla.org/page/-/ssou-logos/jquery-1.10.1.min.js"></script>
     <meta name="description" content="Join Mozilla, the EFF, Free Press, Access, Demand Progress and others in asking Congress to restore our rights to privacy." />
 
@@ -52,15 +53,16 @@
       }
 
       .wrapper {
+
       }
 
       .wrapper.top {
-        background-color: rgb(245, 245, 245);
+        background-color: #2197c6;
         background-image: url('https://sendto.mozilla.org/page/-/ssou-logos/point.png');
         background-position: 0 100%;
         background-repeat: repeat-x;
         padding-top: 10px;
-        padding-bottom: 10px;
+        padding-bottom: 25px;
       }
 
       .wrapper.middle {
@@ -95,7 +97,8 @@
       }
 
       .content {
-        width: 800px;
+        width: 100%;
+        max-width: 800px;
         margin: 0 auto;
         padding: 10px 0;
       }
@@ -106,7 +109,7 @@
         padding: 0;
         text-align: center;
         font-size: .9em;
-        width: 800px;
+        max-width: 800px;
       }
 
       .signatory-categories {
@@ -272,18 +275,16 @@
 
       .quote-container {
         padding-top: 10px;
-        width: 800px;
+        max-width: 800px;
         height: 105px;
         overflow: hidden;
         margin: 0 auto;
       }
 
       .quote-block {
-        position: absolute;
-        width: 520px;
-        margin-top: 0;
-        margin-bottom: 0;
-        margin-left: 135px;
+        max-width: 760px;
+        margin: 0 20px;
+
 
         height: 110px;
         text-align: center;
@@ -301,7 +302,7 @@
         font-size: 15px;
         margin-top: 10px;
       }
-
+      /*
       .quote-block .author:before, .quote-block .author:after {
         content: '';
         display: inline-block;
@@ -309,7 +310,7 @@
         width: 70px;
         height: 1px;
         background-color: rgb(212, 212, 212);
-      }
+      }*/
 
       .quote-block .author:before {
         right: -5px;
@@ -553,8 +554,48 @@
         .quote {font-size: 18px; margin: 0 100px;}
       .quote-block .author {font-size: 20px;}
       }
+
+      .eventbutton.author {
+        margin-top:15px;
+      }
+      .eventbutton a {
+      position:relative;
+      display: inline-block;
+    }
+    .eventbutton a:hover:after {
+      background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+      background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+      background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+      background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+      background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
+      border-radius: 3px;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+    }
+    .eventbutton img {
+      display: block;
+    }
+
+    div.quote img {
+      max-width: 100%;
+    }
+    span#eventtext {display:none;}
+
+    @media only screen and (max-width: 740 ), only screen and (max-device-width: 740) {
+      span#eventtext { color: white; display: inherit; }
+      div.quote img {display:none;}
+      .quote-container, .quote-block, .quote-block .author {height: auto;}
+    }
+
+
     </style>
-  </head>
+  
+<link rel='canonical' href='https://optin.stopwatching.us/' />
+</head>
   <body>
     <div id="counter-container">
       <div id="counter-content">
@@ -567,10 +608,13 @@
       <div class="content">
         <div class="quote-container">
           <div class="quote-block">
-            <div class="quote"><strong>Save the date:</strong> On October 26th, join us for a day of action against mass surveillance in DC on the anniversary of the PATRIOT Act.</div>
-            <div class="author">
-              <a target="_blank" href="http://stopwatchingusrally.eventbrite.com/">
-                RSVP
+            <div class="quote">
+              <img src="images/eventintro.png" alt="On October 26th, Joing us for a rally against mass surveillance in Washington DC" />
+              <span id="eventtext">On October 26th, join us for a rally against mass surveillance in Washington, DC and around the country.</span>
+            </div>
+            <div class="author eventbutton">
+              <a href="https://rally.stopwatching.us">
+                <img src="images/findoutmore.png" alt="Find out more" />
               </a>
             </div>
           </div>
